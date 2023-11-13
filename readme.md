@@ -1,6 +1,6 @@
 # Interview Coding Studies
 
-This is a solution that holds classes (and related unit test classes) for coding puzzles / questions from LeetCode.
+This is a solution that holds classes (and related unit test classes) for coding puzzles / questions.
 
 ## Median of Two Sorted Arrays
 

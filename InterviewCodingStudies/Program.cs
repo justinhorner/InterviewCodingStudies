@@ -1,4 +1,6 @@
-﻿namespace InterviewCodingStudies;
+﻿using System;
+
+namespace InterviewCodingStudies;
 
 internal class Program
 {
