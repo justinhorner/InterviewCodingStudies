@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 
 namespace InterviewCodingStudies;
 
@@ -10,33 +9,30 @@ namespace InterviewCodingStudies;
 
 public class RemoveKdigits
 {
-    public string RemoveDigits(string num, int k)
+    public string RemoveDigits(string num, int digitsToRemove)
     {
-        var digitsList = new List<int>();
-        var length = num.Length;
-
-        for (int i = 0; i < length; i++)
+        if (num.Length == digitsToRemove)
         {
-            var tempList = num.ToCharArray().ToList();
-
-            if ((i + k) > length)
-            {
-                break;
-            }
-            
-            tempList.RemoveRange(i, k);
-
-            if (tempList.Count == 0)
-            {
-                return 0.ToString();
-            }
-            
-            var digits = int.Parse(new string(tempList.ToArray()));
-            digitsList.Add(digits);
+            return 0.ToString();
         }
 
-        //var temp = digitsList.OrderDescending().First();
-        var temp = digitsList.Order().First();
-        return temp.ToString();
+        var sb = new StringBuilder();
+
+        foreach (char c in num)
+        {
+            // if we have digits to remove, something in our string builder and 
+            // the last char of the SB is greater than our current char, 
+            // remove the sb char and add the current char to sb
+            while (digitsToRemove > 0 && sb.Length > 0 && sb[sb.Length - 1] > c)
+            {
+                sb.Length--;
+                digitsToRemove--;
+            }
+            sb.Append(c);
+        }
+        
+        sb.Length -= digitsToRemove;
+        string result = sb.ToString().TrimStart('0');
+        return result.Length == 0 ? "0" : result;
     }
 }

@@ -10,6 +10,7 @@ public class RemoveKdigitsTests
     [DataRow("1432219", 3, "1219")]
     [DataRow("10200", 1, "200")]
     [DataRow("10", 2, "0")]
+    [DataRow("10001", 4, "0")]
     public void UnitTestMethod1(string num, int digitsToRemove, string expectedResult)
     {
         var solution = new RemoveKdigits();
